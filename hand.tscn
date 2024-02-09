@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8aetvqtaxaaw"]
+
+[ext_resource type="Script" path="res://hand.gd" id="1_o41ai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6y6g"]
+size = Vector2(640, 128)
+
+[node name="hand" type="StaticBody2D" groups=["dropable"]]
+script = ExtResource("1_o41ai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a6y6g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -320.0
+offset_top = -64.0
+offset_right = 320.0
+offset_bottom = 64.0
