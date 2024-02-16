@@ -25,6 +25,11 @@ func _dropped_into(card, tween):
 	print(rightEnd)
 	if cards.has(card) == false:
 		cards.append(card)
+	_card_spread(tween)
+	
+	pass
+
+func _card_spread(tween):
 	var interval = leftEnd.distance_to(rightEnd)
 	print(str(interval))
 	interval = interval/ (1+cards.size())
@@ -38,7 +43,6 @@ func _dropped_into(card, tween):
 		print(str(tempCard.initialPos))
 		tween.tween_property(tempCard, "position" ,tempCard.initialPos,0.2).set_ease(Tween.EASE_OUT)
 	
-	pass
 	
 #func _insert_card(card)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
