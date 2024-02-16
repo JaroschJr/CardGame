@@ -6,6 +6,7 @@ var defColor = Color(Color.MEDIUM_PURPLE, 0.5)
 var leftEnd
 var rightEnd
 var cards = Array()
+
 func _ready():
 	##leftEnd = $CardLayLine.get_point_position(0)
 	##rightEnd = $CardLayLine.get_point_position(1)
@@ -15,6 +16,9 @@ func _ready():
 	
 	cards = Array()
 	modulate = defColor
+	
+func _get_cards():
+	return cards
 
 func _dropped_into(card, tween):
 	print(leftEnd)

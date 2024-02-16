@@ -9,9 +9,10 @@ func _ready():
 	modulate = defColor
 
 func _dropped_into(card, tween):
+	card._on_play()
 	card.initialPos = self.position
 	tween.tween_property(card, "position" ,self.position,0.2).set_ease(Tween.EASE_OUT)
-	Global.score = Global.score + 1
+	##Global.score = Global.score + 1
 	_score_updated.emit()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.

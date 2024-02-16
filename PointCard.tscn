@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://e66hp2xevjq5"]
+
+[ext_resource type="PackedScene" uid="uid://ykkkfhynoysy" path="res://card.tscn" id="1_ad8hk"]
+[ext_resource type="Texture2D" uid="uid://bukopuk3jq5ph" path="res://sprites/ScoreInc.png" id="2_2ok8w"]
+[ext_resource type="Script" path="res://PointCard.gd" id="2_wgqvl"]
+
+[node name="Card" instance=ExtResource("1_ad8hk")]
+script = ExtResource("2_wgqvl")
+
+[node name="Art" parent="." index="0"]
+position = Vector2(3.8147e-06, 32)
+scale = Vector2(0.334204, 0.474074)
+texture = ExtResource("2_2ok8w")

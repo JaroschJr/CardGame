@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgnqplwpjn3d"]
+
+[ext_resource type="PackedScene" uid="uid://ykkkfhynoysy" path="res://card.tscn" id="1_hqhc3"]
+[ext_resource type="Script" path="res://DrawCard.gd" id="1_sqckd"]
+[ext_resource type="Texture2D" uid="uid://dvtk4cly5fmvf" path="res://sprites/DrawIcon.png" id="2_fek40"]
+
+[node name="Card" instance=ExtResource("1_hqhc3")]
+script = ExtResource("1_sqckd")
+
+[node name="Art" parent="." index="0"]
+position = Vector2(7.62939e-06, 32)
+scale = Vector2(0.392638, 0.521739)
+texture = ExtResource("2_fek40")

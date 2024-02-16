@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://b1pucxssgmkdh" path="res://icon.svg" id="1_sxou0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsx5e"]
-size = Vector2(19.3939, 17.0213)
+size = Vector2(19.3939, 25.5319)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_nux2w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Art" type="Sprite2D" parent="."]
 z_index = 1
+position = Vector2(0, 32)
+scale = Vector2(1, 1.5)
 texture = ExtResource("1_sxou0")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -18,7 +20,7 @@ position = Vector2(1, 2)
 scale = Vector2(6.6, 7.52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.151515, -0.265957)
+position = Vector2(-0.151515, 3.98936)
 shape = SubResource("RectangleShape2D_hsx5e")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
