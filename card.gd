@@ -11,11 +11,12 @@ var battleRef
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hide()
 	$Art.z_index = 1
 	battleRef = get_node("/root/Battle")
-	body_ref = get_node("/root/Battle/hand")
+	body_ref = get_node("/root/Battle/Pile")
 	var tween = get_tree().create_tween().set_parallel(true)
-	body_ref._dropped_into(self,tween)
+	#body_ref._dropped_into(self,tween)
 	pass # Replace with function body.
 
 

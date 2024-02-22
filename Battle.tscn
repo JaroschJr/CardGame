@@ -22,18 +22,23 @@ offset_top = 48.0
 offset_right = 912.0
 offset_bottom = 112.0
 theme_override_font_sizes/font_size = 24
+metadata/_edit_use_anchors_ = true
 
 [node name="DrawButton" parent="." instance=ExtResource("5_oftbp")]
 offset_left = 72.0
 offset_top = 56.0
 offset_right = 136.0
 offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Card" parent="." instance=ExtResource("6_6ef0r")]
 position = Vector2(128, 448)
 
 [node name="Card2" parent="." instance=ExtResource("6_gcgc3")]
 position = Vector2(1024, 448)
+
+[node name="Pile" type="Node2D" parent="."]
+position = Vector2(1393, 532)
 
 [connection signal="_score_updated" from="Playzone" to="." method="_on_playzone__score_updated"]
 [connection signal="button_up" from="DrawButton" to="." method="_draw_card"]
