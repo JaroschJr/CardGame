@@ -5,6 +5,8 @@ extends Node2D
 var score
 var rng
 var deck
+var energy
+
 func _ready():
 	rng = RandomNumberGenerator.new()
 	score = 0
@@ -23,7 +25,7 @@ func _ready():
 		#card.hide()
 		deck.push_back(card)
 	deck.shuffle()
-	
+	_new_turn()
 	pass # Replace with function body.
 
 func _get_hand():
@@ -41,7 +43,17 @@ func _process(delta):
 func _on_playzone__score_updated():
 	_score_update()
 	pass # Replace with function body.
+
+func _new_turn():
+	_set_energy(3)
+	_draw_card()
 	
+
+func _set_energy(e):
+	energy = e
+	$EnergyPool.text = str(energy)
+	pass
+
 func _draw_card():
 	
 #	var r = rng.randi_range(0,1)

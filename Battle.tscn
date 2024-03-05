@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://8aetvqtaxaaw" path="res://hand.tscn" id="1_s5thy"]
 [ext_resource type="PackedScene" uid="uid://b5yadnjl67t15" path="res://Playzone.tscn" id="3_cgrj6"]
 [ext_resource type="PackedScene" uid="uid://b81jmgmh6iw51" path="res://draw_button.tscn" id="5_oftbp"]
-[ext_resource type="PackedScene" uid="uid://cgnqplwpjn3d" path="res://DrawCard.tscn" id="6_6ef0r"]
-[ext_resource type="PackedScene" uid="uid://e66hp2xevjq5" path="res://PointCard.tscn" id="6_gcgc3"]
+[ext_resource type="Script" path="res://TurnButton.gd" id="5_peqpy"]
+[ext_resource type="Texture2D" uid="uid://bqcrse5nhm10v" path="res://sprites/Energy.png" id="6_i7j8o"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_5r5ci")
@@ -22,23 +22,42 @@ offset_top = 48.0
 offset_right = 912.0
 offset_bottom = 112.0
 theme_override_font_sizes/font_size = 24
+text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="DrawButton" parent="." instance=ExtResource("5_oftbp")]
-offset_left = 72.0
-offset_top = 56.0
-offset_right = 136.0
-offset_bottom = 120.0
+[node name="Label" type="Label" parent="ScoreLabel"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 31.0
+text = "Score:"
+
+[node name="TurnButton" parent="." instance=ExtResource("5_oftbp")]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 88.0
+script = ExtResource("5_peqpy")
 metadata/_edit_use_anchors_ = true
-
-[node name="Card" parent="." instance=ExtResource("6_6ef0r")]
-position = Vector2(128, 448)
-
-[node name="Card2" parent="." instance=ExtResource("6_gcgc3")]
-position = Vector2(1024, 448)
 
 [node name="Pile" type="Node2D" parent="."]
 position = Vector2(1393, 532)
 
+[node name="EnergyIcon" type="Sprite2D" parent="."]
+position = Vector2(57, 440)
+scale = Vector2(1.01852, 0.993103)
+texture = ExtResource("6_i7j8o")
+flip_v = true
+
+[node name="EnergyPool" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 416.0
+offset_right = 80.0
+offset_bottom = 486.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+
 [connection signal="_score_updated" from="Playzone" to="." method="_on_playzone__score_updated"]
-[connection signal="button_up" from="DrawButton" to="." method="_draw_card"]
+[connection signal="button_up" from="TurnButton" to="." method="_new_turn"]

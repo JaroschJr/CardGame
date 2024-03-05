@@ -7,12 +7,15 @@ var is_inside_dropable = false
 var body_ref
 var initialPos : Vector2
 var battleRef
+var energyCost
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	energyCost = 1
 	hide()
 	$Art.z_index = 1
+	$EnergyScore.text = str(energyCost)
 	battleRef = get_node("/root/Battle")
 	body_ref = get_node("/root/Battle/Pile")
 	var tween = get_tree().create_tween().set_parallel(true)
@@ -64,5 +67,7 @@ func _on_area_2d_body_exited(body):
 	is_inside_dropable = false
 	body.modulate = body.defColor
 	
-#func _on_play():
+func _on_play():
+	battleRef._set_energy(battleRef.energy - energyCost)
+	pass
 #	battleRef.score = battleRef.score + 1
