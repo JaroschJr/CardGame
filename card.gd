@@ -68,6 +68,13 @@ func _on_area_2d_body_exited(body):
 	body.modulate = body.defColor
 	
 func _on_play():
-	battleRef._set_energy(battleRef.energy - energyCost)
+	if battleRef.energy >= energyCost:
+		battleRef._set_energy(battleRef.energy - energyCost)
+		return true
+	else:
+		body_ref = battleRef._get_hand()
+		var tween = get_tree().create_tween().set_parallel(true)
+		body_ref._dropped_into(self,tween)
+		return false
 	pass
 #	battleRef.score = battleRef.score + 1
